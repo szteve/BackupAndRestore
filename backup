@@ -1,0 +1,41 @@
+#!/bin/bash
+root="/*"
+destination="home/network"
+#Declare function
+fun_exit()
+{
+	echo "BYYYYYYEEEEEEEE!!!!!!!"
+	exit
+}
+
+fun_backup()
+{
+	#Add time to backup file
+	echo "Now backing up your files"
+	#TIME=`date +%b-%d-%y`
+
+	#use tar to backup all directories
+	#and specify files directories to not be included
+	#$tar cvpfz $destination/backup backup-$TIME.tar.gz $root --exclude='/dev/*' --exclude='/proc/*' --exclude='/sys/*' --exclude='/tmp/*' --exclude='/run/*' --exclude='/mnt/*' --exclude='/media/*' --exclude='/lost+found'
+	echo "Files have been backed up yo bitch"
+	
+}
+
+while :
+do
+	#display menu
+	echo "================================"
+	echo "Welcome to my backup and restore"
+	echo "================================"
+	echo "1.Select to backup files"
+	echo "2.Select to restore files"
+	echo "3.Exit"
+	echo "Please enter choice from 1-3"
+	read option
+
+	case $option in
+		1) fun_backup;;
+		2) fun_restore;;
+		3) fun_exit;;
+	esac
+done

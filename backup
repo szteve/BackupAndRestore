@@ -1,7 +1,7 @@
 #!/bin/bash
 ROOT="/*"
 DEST="/backup_dir"
-EX_DIRS=" --exclude=/root/backup_dir/* --exclude=/dev/* --exclude=/proc/* --exclude=/sys/* --exclude=/tmp/* --exclude=/run/* --exclude=/mnt/* --exclude=/media/* --exclude=/lost+found"
+EX_DIRS=" --exclude=/usr/* --exclude=/home/* --exclude=/var/*  --exclude=/lib/*  --exclude=/usr/lib/*  --exclude=/root/backup_dir/* --exclude=/dev/* --exclude=/proc/* --exclude=/sys/* --exclude=/tmp/* --exclude=/run/* --exclude=/mnt/* --exclude=/media/* --exclude=/lost+found"
 FILE_BACKUP="backup-$TIME.tgz"
 
 #Declare function
@@ -76,6 +76,12 @@ fun_restore()
 
 }
 
+fun_viewrest()
+{
+	cd /restore_dir
+        ls
+}
+
 #main while for menu
 clear
 while :
@@ -87,7 +93,8 @@ do
 	echo "1.Select to backup files to the root"
 	echo "2.View backup in location"
 	echo "3.Select to restore from the Backup into root"
-	echo "4.Exit"
+	echo "4.View files in restored folder in root"
+	echo "5.Exit"
 	echo "Please enter choice from 1-4:"
 	echo "====================================================="
 	echo
@@ -97,6 +104,7 @@ do
 		1) fun_backup;;
 		2) fun_dest;;
 		3) fun_restore;;
-		4) fun_exit;;
+		4) fun_viewrest;;
+		5) fun_exit;;
 	esac
 done

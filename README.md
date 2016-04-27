@@ -7,8 +7,10 @@ where it will be safe, the cronback file also allows the user to
 schedule backups for the system to run monthly week etc
 
 #Instructions
+###NOTE: you must be super user to run command : sudo su or just sudo before any command then enter your password
 
 1.Download this repo to your system using this command in your terminal
+
   git clone https://github.com/szteve/BackupAndRestore
 
 2.cd into the repo using: cd BackupAndRestore

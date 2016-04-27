@@ -1,0 +1,35 @@
+#!/bin/bash
+ROOT="/*"
+DEST="/backup_dir"
+EX_DIRS=" --exclude=/usr/* --exclude=/home/* --exclude=/var/*  --exclude=/lib/*  --exclude=/usr/lib/*  --exclude=/root/backup_dir/* --exclude=/dev/* --exclude=/proc/* --exclude=/sys/* --exclude=/tmp/* --exclude=/run/* --exclude=/mnt/* --exclude=/media/* --exclude=/lost+found"
+FILE_BACKUP="backup-$TIME.tgz"
+
+
+if [ "$USER" != "root" ];
+then
+	 echo "You aint root user use sudo"
+         exit
+fi
+clear
+
+#create backup folder if doesnt already exist
+cd /
+if [ ! -d "backup_dir" ]
+then
+	mkdir -p backup_dir
+fi
+
+#Add time to backup file
+echo "========================="
+echo
+echo "Now backing up your files"
+echo
+TIME=`date +%b-%d-%y-%k%M`
+
+#use tar to backup all directories
+#and specify files directories to not be included
+tar cvpfz $DEST/backup-$TIME.tgz $ROOT $EX_DIRS
+echo
+echo
+echo "Files have been backed up"
+

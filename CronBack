@@ -5,11 +5,11 @@ EX_DIRS=" --exclude=/usr/* --exclude=/home/* --exclude=/var/*  --exclude=/lib/* 
 FILE_BACKUP="backup-$TIME.tgz"
 
 
-if [ "$USER" != "root" ];
-then
-	 echo "You aint root user use sudo"
-         exit
-fi
+#if [ "$USER" != "root" ];
+#then
+#	 echo "You aint root user use sudo"
+#         exit
+#fi
 clear
 
 #create backup folder if doesnt already exist
